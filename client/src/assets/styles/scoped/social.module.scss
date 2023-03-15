@@ -1,0 +1,19 @@
+@use '@style/abstracts/variables' as *;
+
+.social-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.2rem;
+
+  i {
+    color: $pink-400;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: $ease;
+
+    &:hover {
+      color: $pink-600;
+    }
+  }
+}

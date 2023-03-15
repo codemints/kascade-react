@@ -1,0 +1,16 @@
+@use '@style/abstracts/variables' as *;
+
+.login-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 114rem;
+  background-color: $dark-700;
+  margin-inline: auto;
+  padding: 2rem;
+
+  img {
+    max-width: 15rem;
+    width: 100%;
+  }
+}
