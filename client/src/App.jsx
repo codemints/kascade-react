@@ -1,4 +1,5 @@
-import Header from '@component/Header'
+import Header from '@component/header/Header'
+import Title from '@component/landing/Title'
 
 function App() {
   document.documentElement.classList.add('dark');
@@ -6,6 +7,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <Title />
     </div>
   )
 }

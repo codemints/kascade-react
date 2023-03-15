@@ -28,10 +28,10 @@ const Social = () => {
   return (
     <div className={ styles['social-wrapper'] }>
       <ul>
-        { Object.entries(socialLinks).map(([key, value], index) => (
+        { Object.entries(socialLinks).map(([key, value]) => (
             <li key={ key }>
               <a href={ value.url } target="_blank">
-                <i className={ `fa-brands ${value.icon}` }></i>
+                <i className={ `fa-brands ${value.icon} dark:text-pink-400 dark:hover:text-pink-600` } aria-label={ `Link to ${key}`}></i>
               </a>
             </li>
           )

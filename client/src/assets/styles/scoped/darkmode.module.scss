@@ -1,3 +1,46 @@
+@use '@style/abstracts/variables' as *;
+
 .toggle-wrapper {
-  
+  $width: 6rem;
+  $height: 3.2rem;
+  $space: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  input {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+
+    &:checked + label:after {
+      transform: translateX(calc($width - $height));
+    }
+  }
+
+  label {
+    position: relative;
+    width: $width;
+    height: $height;
+    display: block;
+    border-radius: calc($height / 2);
+    cursor: pointer;
+
+  }
+
+
+  label:after {
+    content: "";
+    position: absolute;
+    top: calc($space / 2);
+    left: calc($space / 2);
+    width: calc($height - $space);
+    height: calc($height - $space);
+    border-radius: calc($height / 2);
+    transform: translateX(0);
+    transition: all $timing $bounce;
+  }
 }
