@@ -1,8 +1,11 @@
+import { useEffect, useState } from 'react'
 import Header from '@component/header/Header'
 import Title from '@component/landing/Title'
 
 function App() {
-  document.documentElement.classList.add('dark');
+  useEffect(() => {
+
+  }, [])
 
   return (
     <div className="App">

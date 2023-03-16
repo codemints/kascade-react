@@ -4,17 +4,14 @@ import styles from '@style/scoped/title.module.scss'
 
 const Title = () => {
   const registerForm = {
-    title: 'Get started',
-    subtitle: 'Create a new account',
-    buttonText: 'Sign up',
     route: '/signup',
-    typeOfForm: 'register'
+    typeOfForm: 'signup'
   }
 
   return (
     <section className={ `${styles['landing-page']}` }>
       <div className={ `${styles['hero-text']}` }>
-        <h1 className="dark:text-dark-600 font-theme font-heading">
+        <h1 className="text-dark-200 dark:text-dark-600 font-theme font-heading">
           <span className={ `${styles['animate-gradient--background']} ${styles['background-color--1']} ${styles['content-fast']}` }>
             <span className={ `${styles['animate-gradient--foreground']}` }>Fast.</span>
           </span>
@@ -25,7 +22,7 @@ const Title = () => {
             <span className={ `${styles['animate-gradient--foreground']}` }>Easy.</span>
           </span>
         </h1>
-        <h2 className="dark:text-pink-400">Progress takes teamwork.</h2>
+        <h2 className="text-pink-400">Progress takes teamwork.</h2>
       </div>
       <div className="form-wrapper">
         <Form data={ registerForm } />

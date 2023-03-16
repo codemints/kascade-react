@@ -7,7 +7,7 @@ import logoDark from '@image/logo-dark.png'
 
 const Header = () => {
   return (
-    <header className={ `${styles['login-header']} dark:bg-dark-700` }>
+    <header className={ `${styles['login-header']} bg-dark-100 dark:bg-dark-700` }>
       <Darkmode />
       <div className="site-logo">
         <a href="/">
