@@ -1,16 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDarkmode } from '@store/darkmode'
 import styles from '@style/scoped/darkmode.module.scss'
 
 const Darkmode = () => {
-  const toggleDarkMode = () => {
-    const root = document.documentElement
-    root.classList.toggle('dark')
-  }
+  const { darkmode, toggleDarkmode } = useDarkmode()
 
   return (
     <div className={ styles['toggle-wrapper'] }>
       <input
-        onClick={ toggleDarkMode }
+        onClick={ toggleDarkmode }
         type="checkbox"
         id="toggle-switch"
       />

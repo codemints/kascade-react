@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useDarkmode } from '@store/darkmode'
 import Darkmode from '@component/global/Darkmode'
 import Social from '@component/global/Social'
 import styles from '@style/scoped/header.module.scss'

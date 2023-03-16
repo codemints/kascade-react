@@ -14,7 +14,7 @@ export default defineConfig({
       '@style': path.resolve(__dirname, 'src/assets/styles'),
       '@icon': path.resolve(__dirname, 'src/assets/icons'),
       '@view': path.resolve(__dirname, 'src/views'),
-      '@store': path.resolve(__dirname, 'src/store'),
+      '@store': path.resolve(__dirname, 'src/stores'),
     }
   }
 })
