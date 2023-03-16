@@ -7,12 +7,17 @@ const Darkmode = () => {
 
   return (
     <div className={ styles['toggle-wrapper'] }>
-      <input
-        onClick={ toggleDarkmode }
-        type="checkbox"
-        id="toggle-switch"
-      />
-      <label htmlFor="toggle-switch" className="bg-dark-200 after:bg-pink-400 dark:bg-dark-600"></label>
+      <i className="fa-sharp fa-regular fa-moon-stars text-dark-200 dark:text-dark-400"></i>
+      <div className={ styles['toggle-switch']}>
+        <input
+          onClick={ toggleDarkmode }
+          type="checkbox"
+          id="toggle-switch"
+          className={ darkmode ? undefined : styles['is-light'] }
+        />
+        <label htmlFor="toggle-switch" className="bg-dark-400 after:bg-pink-400 dark:bg-dark-600"></label>
+      </div>
+      <i className="fa-sharp fa-regular fa-sun text-dark-200 dark:text-dark-400"></i>
     </div>
   )
 }
