@@ -1,12 +1,15 @@
 import React from 'react'
-import Form from '@components/form/Form'
+import Form from '@component/form/Form'
 import styles from '@style/scoped/title.module.scss'
 
 const Title = () => {
-  const title = 'Get started'
-  const subtitle = 'Create a new account'
-  const button = 'Sign up'
-  const route = '/signup'
+  const registerForm = {
+    title: 'Get started',
+    subtitle: 'Create a new account',
+    buttonText: 'Sign up',
+    route: '/signup',
+    typeOfForm: 'register'
+  }
 
   return (
     <section className={ `${styles['landing-page']}` }>
@@ -25,11 +28,7 @@ const Title = () => {
         <h2 className="dark:text-pink-400">Progress takes teamwork.</h2>
       </div>
       <div className="form-wrapper">
-        <Form
-          title={ title }
-          subtitle={ subtitle }
-          button={ button }
-          route={ route } />
+        <Form data={ registerForm } />
       </div>
     </section>
   )

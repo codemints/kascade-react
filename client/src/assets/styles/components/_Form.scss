@@ -1,0 +1,15 @@
+.form-inner {
+  
+  .form-auth {
+
+    button {
+      display: block;
+
+      .button-inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
