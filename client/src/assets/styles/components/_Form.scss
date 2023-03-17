@@ -1,17 +1,12 @@
 @use "@style/abstracts" as *;
 
-.form-data {
-  position: absolute;
-  top: 50%;
-  left: 10vw;
-  background-color: $dark-400;
-}
-
 .form-inner {
   $radius: 0.25rem;
   width: 36rem;
 
   .form-intro {
+    text-align: center;
+    
     h3 {
       font-size: 3.6rem;
       font-weight: $font-heading;

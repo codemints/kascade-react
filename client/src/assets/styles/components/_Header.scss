@@ -1,15 +1,10 @@
 @use '@style/abstracts/variables' as *;
 
-.login-header {
+.header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 114rem;
-  min-height: 8vh;
-  border-end-start-radius: 1.2rem;
-  border-end-end-radius: 1.2rem;
-  margin-inline: auto;
-  padding-inline: 2rem;
+  width: 100%;
   
   
   > * {

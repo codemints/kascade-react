@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { createRegExp, exactly, anyOf } from 'magic-regexp'
 import { useForm } from 'react-hook-form'
 
-const Form = ({data: {route, typeOfForm}}) => {
+const Form = ({data: {endPoint, typeOfForm}}) => {
   const [type, setType] = useState(null)
   const [required, setRequired] = useState({uppercase: false, number: false, special: false})
   const { register, handleSubmit, watch, formState: { errors } } = useForm()
@@ -134,13 +133,7 @@ const Form = ({data: {route, typeOfForm}}) => {
               className="bg-pink-200 dark:bg-pink-400 border-pink-400 dark:border-pink-200 hover:border-pink-600 dark:hover:border-pink-100 text-white"
             />
         </form>
-        <p className="form-switcher text-dark-600 dark:text-pink-400">{ type ? 'Already registered?' : 'Not registered yet?' } <a
-            href="#"
-            className="text-pink-600 dark:text-white"
-            >
-              Sign { type ? 'in' : 'up' } now
-          </a>
-        </p>
+        <p className="form-switcher text-dark-600 dark:text-pink-400">{ type ? 'Already registered?' : 'Not registered yet?' } <a href="#" className="text-pink-600 dark:text-white" >Sign { type ? 'in' : 'up' } now</a></p>
       </div>
     </>
   )

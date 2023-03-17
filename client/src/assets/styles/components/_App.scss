@@ -1,0 +1,24 @@
+@use "@style/abstracts" as *;
+
+.App {
+  $header-height: 6rem;
+
+  .login-header {
+    display: flex;
+    align-items: center;
+    max-width: 114rem;
+    min-height: $header-height;
+    border-end-start-radius: 1.2rem;
+    border-end-end-radius: 1.2rem;
+    margin-inline: auto;
+    padding-inline: 2rem;
+    
+  }
+
+  .login-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - $header-height);
+  }
+}
