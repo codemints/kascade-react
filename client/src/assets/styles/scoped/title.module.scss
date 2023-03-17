@@ -6,13 +6,16 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  min-height: 92vh;
+  max-width: 100rem;
+  min-height: 75vh;
+  margin-inline: auto;
 
   h1 {
     $startColor: $pink-600;
     $endColor: $pink-200;
 
     display: flex;
+    justify-content: center;
     gap: 2rem;
     font-size: 11.2rem;
     text-transform: uppercase;

@@ -120,7 +120,7 @@ const Form = ({data: {route, typeOfForm}}) => {
           <input
             type="submit"
             value={ `${type ? 'Register' : 'Signin'}` }
-            // disabled={ !watch('email') || !watch('password') }
+            disabled={ !watch('email') || !watch('password') }
             title={ `Please enter a valid email and password to ${type ? 'register' : 'sign in'}.`}
             className="bg-pink-200 dark:bg-pink-400 border-pink-400 dark:border-pink-200 hover:border-pink-600 dark:hover:border-pink-100 text-white"
           />

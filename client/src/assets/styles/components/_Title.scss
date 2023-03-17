@@ -1,3 +1,29 @@
+@use "@style/abstracts/variables" as *;
+
+.hero-text {
+  > p {
+    font-size: 1.8rem;
+    max-width: 70rem;
+    margin-inline: auto;
+    margin-top: 3.5rem;
+  }
+
+  > button {
+    display: flex;
+    gap: 2rem;
+    font-size: 1.8rem;
+    font-family: $font-family;
+    font-weight: $font-heading;
+    text-transform: uppercase;
+    border-width: 0.2rem;
+    padding-inline: 2.4rem;
+    padding-block: 1.2rem;
+    margin-inline: auto;
+    margin-top: 5rem;
+    cursor: pointer;
+    transition: all $timing $ease;
+  }
+}
 .form-wrapper {
   margin-top: 5rem;
 }
