@@ -1,5 +1,12 @@
 @use "@style/abstracts" as *;
 
+.form-data {
+  position: absolute;
+  top: 50%;
+  left: 10vw;
+  background-color: $dark-400;
+}
+
 .form-inner {
   $radius: 0.25rem;
   width: 36rem;
@@ -119,6 +126,37 @@
       margin-top: 2.4rem;
       cursor: pointer;
       transition: border-color $timing $ease;
+
+      &[disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
+        // pointer-events: none;
+      }
+    }
+
+    .error-text {
+      color: $pink-600;
+      font-size: 1.2rem;
+      text-align: left;
+      margin-top: 0.6rem;
+
+      p {
+        position: relative;
+        padding-left: 1.5rem;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 0;
+          height: 1rem;
+          width: 1rem;
+          border-radius: 50%;
+          border-width: 0.1rem;
+          border-style: solid;
+          transform: translateY(-50%);
+        }
+      }
     }
   }
 

@@ -1,22 +1,42 @@
 import React, { useEffect, useState } from 'react'
+import { createRegExp, exactly, anyOf } from 'magic-regexp'
 import { useForm } from 'react-hook-form'
 
 const Form = ({data: {route, typeOfForm}}) => {
-  const [type, setType] = useState('')
+  const [type, setType] = useState(null)
+  const [required, setRequired] = useState({uppercase: false, number: false, special: false})
   const { register, handleSubmit, watch, formState: { errors } } = useForm()
+  const password = watch('password')
 
   useEffect(() => {
     typeOfForm === 'register' ? setType(true) : setType(false)
-    console.log(type)
   }, [])
 
-  watch('email')
+  useEffect(() => {
+    const uppercase = /[A-Z]/
+    const number = /[0-9]/
+    const special = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/
+
+    if ( password !== undefined ) {
+      setRequired(
+        {
+          uppercase: uppercase.test(password),
+          number: number.test(password),
+          special: special.test(password)
+        }
+      )
+    }
+
+  }, [password])
 
   const onSubmit = (data) => {
-
   }
 
   return (
+    <>
+    <div className="form-data">
+      
+    </div>
     <div className="form-inner text-dark-600 dark:text-white">
       <div className="form-intro">
         <h3>{ type ? 'Get started' : 'Welcome back'}</h3>
@@ -61,28 +81,47 @@ const Form = ({data: {route, typeOfForm}}) => {
             type="email"
             placeholder="user@user.com"
             id="user-email"
-            className="border-blue-400 dark:border-white" />
-          { errors.email && <p>{ errors.email.message }</p> }
+            className="border-blue-400 dark:border-white"
+            aria-invalid={ errors.email ? "true" : "false"} />
+          { errors.email && <p className="error-text">{ errors.email.message }</p> }
         </div>
         <div className="input-group">
           <label htmlFor="user-password">Password</label>
           <input
             { ...register('password', {
               required: "Password is required",
-              pattern: {
+              minLength: {
+                value: 10,
+                message: "Password must be at least 10 characters"
+              },
+              pattern:  {
                 value: /^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[*?!\-_])[A-Za-z0-9*?!\-_]{10,}$/,
-                message: "Invalid password"
+                message: "Password must contain at least one of each:"
               }
             }) }
             type="text"
             placeholder="**********"
             id="user-password"
-            className="border-blue-400 dark:border-white" />
-          { errors.password && <p>{ errors.password.message }</p> }
+            className="border-blue-400 dark:border-white"
+            aria-invalid={ errors.email ? "true" : "false"} />
+          { errors.password &&
+            <div className="error-text">
+              <h3>{ errors.password.message }</h3>
+              { errors.password.type === 'pattern' &&
+                <>
+                  <p className={ `${required.uppercase ? 'before:bg-pink-600' : 'before:bg-transparent'} before:border-dark-400` }>Uppercase letter</p>
+                  <p className={ `${required.number ? 'before:bg-pink-600' : 'before:bg-transparent'} before:border-dark-400` }>Number</p>
+                  <p className={ `${required.special ? 'before:bg-pink-600' : 'before:bg-transparent'} before:border-dark-400` }>Special character</p>
+                </>
+              }
+            </div>
+          }
         </div>
           <input
             type="submit"
             value={ `${type ? 'Register' : 'Signin'}` }
+            // disabled={ !watch('email') || !watch('password') }
+            title={ `Please enter a valid email and password to ${type ? 'register' : 'sign in'}.`}
             className="bg-pink-200 dark:bg-pink-400 border-pink-400 dark:border-pink-200 hover:border-pink-600 dark:hover:border-pink-100 text-white"
           />
       </form>
@@ -94,6 +133,7 @@ const Form = ({data: {route, typeOfForm}}) => {
         </a>
       </p>
     </div>
+    </>
   )
 }
 

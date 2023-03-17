@@ -13,11 +13,7 @@ body {
 
 .dark {
   body {
-    background: url('@image/hero-dark.png'), $dark-800;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
+    background-color: $dark-800;
   }
 
   header {

@@ -7,7 +7,7 @@ function App() {
   const { darkmode, setDarkmode } = useDarkmode()
 
   useEffect(() => {
-    setDarkmode(false)
+    // setDarkmode(false)
   }, [])
 
   useEffect(() => {

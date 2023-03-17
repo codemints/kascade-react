@@ -5,7 +5,7 @@ import styles from '@style/scoped/title.module.scss'
 const Title = () => {
   const registerForm = {
     route: '/signup',
-    typeOfForm: 'signup'
+    typeOfForm: 'register'
   }
 
   return (
