@@ -10,7 +10,7 @@ const Title = () => {
 
   return (
     <section className={ `${styles['landing-page']}` }>
-      <div className={ `${styles['hero-text']} hero-text` }>
+      {/* <div className={ `${styles['hero-text']} hero-text` }>
         <h1 className="text-dark-200 dark:text-dark-600 font-theme font-heading">
           <span className={ `${styles['animate-gradient--background']} ${styles['background-color--1']} ${styles['content-fast']}` }>
             <span className={ `${styles['animate-gradient--foreground']}` }>Fast.</span>
@@ -28,10 +28,10 @@ const Title = () => {
           <i className="fa-sharp fa-regular fa-pen-field"></i>
           <p>Try it today - It's Free</p>
         </button>
-      </div>
-      {/* <div className="form-wrapper">
-      <Form data={ registerForm } />
       </div> */}
+      <div className="form-wrapper">
+      <Form data={ registerForm } />
+      </div>
     </section>
   )
 }
