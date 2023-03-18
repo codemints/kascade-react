@@ -1,0 +1,172 @@
+@use "@style/abstracts" as *;
+
+.form-inner {
+  $radius: 0.25rem;
+  width: 36rem;
+
+  .form-intro {
+    text-align: center;
+    
+    h3 {
+      font-size: 3.6rem;
+      font-weight: $font-heading;
+      text-transform: uppercase;
+    }
+    h4 {
+      font-size: 1.8rem;
+      font-weight: $font-body;
+    }
+  }
+  
+  .form-auth {
+    margin-top: 3.2rem;
+
+    button {
+      display: block;
+      border-width: 0.2rem;
+      border-style: solid;
+      border-radius: $radius;
+      width: 100%;
+      padding-inline: 1.5rem;
+      padding-block: 0.75rem;
+      transition: border-color $timing $ease;
+
+      &:not(:first-of-type) {
+        margin-top: 1.5rem;
+      }
+
+      .button-inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p {
+          font-size: 1.5rem;
+          font-weight: $font-body;
+        }
+
+        i {
+          font-size: 1.8rem;
+          margin-right: 1.2rem;
+        }
+      }
+    }
+  }
+
+  .form-divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-block: 2rem;
+    
+    .divider-text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .divider-line {
+      position: absolute;
+      width: 100%;
+      height: 1px;
+    }
+
+    .divider-text {
+      font-size: 1.5rem;
+      position: relative;
+      z-index: 1;
+      padding-inline: 1rem;
+    }
+  }
+
+  form {
+
+    .input-group {
+
+      &:not(:first-of-type) {
+        margin-top: 1.5rem;
+      }
+    }
+
+    label, input {
+      display: block;
+    }
+
+    label {
+      text-align: left;
+      font-size: 1.5rem;
+      font-weight: $font-body;
+    }
+
+    input {
+      padding: 1.2rem;
+      border-style: solid;
+      border-radius: $radius;
+      width: 100%;
+    }
+    
+    input:not([type=submit]) {
+      font-size: 1.5rem;
+      background: transparent;
+      border-width: 0.1rem;
+      margin-top: 0.6rem;
+    }
+
+    input[type=submit] {
+      font-size: 1.8rem;
+      font-weight: $font-heading;
+      text-transform: uppercase;
+      border-width: 0.2rem;
+      margin-top: 2.4rem;
+      cursor: pointer;
+      transition: border-color $timing $ease;
+
+      &[disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
+        // pointer-events: none;
+      }
+    }
+
+    .error-text {
+      color: $pink-600;
+      font-size: 1.2rem;
+      text-align: left;
+      margin-top: 0.6rem;
+
+      p {
+        position: relative;
+        padding-left: 1.5rem;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 0;
+          height: 1rem;
+          width: 1rem;
+          border-radius: 50%;
+          border-width: 0.1rem;
+          border-style: solid;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+
+  .form-switcher {
+    font-size: 1.5rem;
+    font-weight: $font-body;
+    text-align: center;
+    margin-top: 2.4rem;
+
+    a {
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

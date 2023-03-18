@@ -1,0 +1,56 @@
+@use '@style/abstracts/variables' as *;
+
+.toggle-wrapper {
+  $width: 6rem;
+  $height: 3.2rem;
+  $space: 1rem;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  
+  i {
+    font-size: 2.1rem;
+  }
+
+  .toggle-switch {
+    position: relative;
+
+    input {
+      position: absolute;
+      height: 0;
+      width: 0;
+      overflow: hidden;
+      opacity: 0;
+  
+      &.is-light + label:after {
+        transform: translateX(calc($width - $height));
+      }
+    }
+  
+  
+    label {
+      position: relative;
+      width: $width;
+      height: $height;
+      display: block;
+      border-radius: calc($height / 2);
+      cursor: pointer;
+  
+    }
+  
+  
+    label:after {
+      content: "";
+      position: absolute;
+      top: calc($space / 2);
+      left: calc($space / 2);
+      width: calc($height - $space);
+      height: calc($height - $space);
+      border-radius: calc($height / 2);
+      transform: translateX(0);
+      transition: all $timing $bounce;
+    }
+  }
+}

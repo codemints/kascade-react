@@ -1,0 +1,21 @@
+@use '@style/abstracts/variables' as *;
+
+.social-wrapper {
+  
+  ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    i {
+      font-size: 2.1rem;
+      cursor: pointer;
+      transition: all $timing $ease;
+    }
+  }
+
+}

@@ -1,0 +1,192 @@
+@use "@style/abstracts/variables" as *;
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 100rem;
+  min-height: 75vh;
+  margin-inline: auto;
+
+  .hero-text {
+    h1 {
+      $startColor: $pink-600;
+      $endColor: $pink-200;
+    
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      font-size: 11.2rem;
+      text-transform: uppercase;
+      line-height: 1.5;
+    
+      .animate-gradient--background {
+        position: relative;
+        display: block;
+    
+        &.background-color--1 {
+          &:before {
+            animation: animate-gradient-background-1 8s infinite;
+          }
+          
+          > span {
+            animation: animate-gradient-foreground-1 8s infinite;
+          }
+        }
+    
+        &.background-color--2 {
+          &:before {
+            animation: animate-gradient-background-2 8s infinite;
+          }
+          
+          > span {
+            animation: animate-gradient-foreground-2 8s infinite;
+          }
+        }
+    
+        &.background-color--3 {
+          &:before {
+            animation: animate-gradient-background-3 8s infinite;
+          }
+          
+          > span {
+            animation: animate-gradient-foreground-3 8s infinite;
+          }
+        }
+    
+        &:before {
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          display: block;
+          width: 100%;
+          text-align: center;
+          border: none;
+          z-index: 0;
+        }
+    
+        &.content-fast:before {
+          content: "Fast.";
+        }
+    
+        &.content-agile:before {
+          content: "Agile.";
+        }
+    
+        &.content-easy:before {
+          content: "Easy.";
+        }
+      }
+    
+      .animate-gradient--foreground {
+        position: relative;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-image: linear-gradient(90deg, $startColor, $endColor);
+        z-index: 1;
+      }
+    }
+    
+    h2 {
+      font-size: 3.6rem;
+      line-height: 1;
+      margin-top: -1.8rem;
+    }
+
+    > p {
+      font-size: 1.8rem;
+      max-width: 70rem;
+      margin-inline: auto;
+      margin-top: 3.5rem;
+    }
+  
+    > .register-button {
+      display: flex;
+      gap: 2rem;
+      font-size: 1.8rem;
+      font-family: $font-family;
+      font-weight: $font-heading;
+      text-transform: uppercase;
+      border-width: 0.2rem;
+      padding-inline: 2.4rem;
+      padding-block: 1.2rem;
+      margin-inline: auto;
+      margin-top: 5rem;
+      width: max-content;
+      cursor: pointer;
+      transition: all $timing $ease;
+    }
+  }
+}
+
+@keyframes animate-gradient-foreground-1 {
+  0%,16.667%,to {
+      opacity: 1
+  }
+
+  33.333%,83.333% {
+      opacity: 0
+  }
+}
+
+@keyframes animate-gradient-background-1 {
+  0%,16.667%,to {
+      opacity: 0
+  }
+
+  25%,91.667% {
+      opacity: 1
+  }
+}
+
+@keyframes animate-gradient-foreground-2 {
+  0%,to {
+      opacity: 0
+  }
+
+  33.333%,50% {
+      opacity: 1
+  }
+
+  16.667%,66.667% {
+      opacity: 0
+  }
+}
+
+@keyframes animate-gradient-background-2 {
+  0%,to {
+      opacity: 1
+  }
+
+  33.333%,50% {
+      opacity: 0
+  }
+
+  25%,58.333% {
+      opacity: 1
+  }
+}
+
+@keyframes animate-gradient-foreground-3 {
+  0%,50%,to {
+      opacity: 0
+  }
+
+  66.667%,83.333% {
+      opacity: 1
+  }
+}
+
+@keyframes animate-gradient-background-3 {
+  0%,58.333%,91.667%,to {
+      opacity: 1
+  }
+
+  66.667%,83.333% {
+      opacity: 0
+  }
+}

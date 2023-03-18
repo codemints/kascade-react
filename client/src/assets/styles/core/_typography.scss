@@ -1,0 +1,8 @@
+@use "@style/abstracts/variables" as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap');
+
+h1 {
+  font-family: $font-family;
+  font-weight: $font-heading;
+}
