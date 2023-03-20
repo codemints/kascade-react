@@ -5,12 +5,20 @@ import { useForm } from 'react-hook-form'
 const Form = ({data: {endPoint, typeOfForm}}) => {
   const [type, setType] = useState(null)
   const [required, setRequired] = useState({uppercase: false, number: false, special: false})
+
+  const [formSubmitted, setFormSubmitted] = useState(false)
+  const [formError, setFormError] = useState(null)
+  const [formData, setFormData] = useState({})
+
+  const NODE_ENV = process.env.NODE_ENV
+  const API_URL = NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://kascade-server.onrender.com'
+
   const { register, handleSubmit, watch, formState: { errors } } = useForm()
   const password = watch('password')
 
   useEffect(() => {
     typeOfForm === 'register' ? setType(true) : setType(false)
-  }, [])
+  }, [typeOfForm])
 
   useEffect(() => {
     const uppercase = /[A-Z]/
@@ -29,6 +37,7 @@ const Form = ({data: {endPoint, typeOfForm}}) => {
   }, [password])
 
   const onSubmit = (data) => {
+    console.log(NODE_ENV)
   }
 
   return (
@@ -129,7 +138,7 @@ const Form = ({data: {endPoint, typeOfForm}}) => {
             <input
               type="submit"
               value={ `${type ? 'Register' : 'Signin'}` }
-              disabled={ !watch('email') || !watch('password') }
+              disabled={ (type && !watch('userName')) || !watch('email') || !watch('password') }
               title={ `Please enter a valid email and password to ${type ? 'register' : 'sign in'}.`}
               className="bg-pink-200 dark:bg-pink-400 border-pink-400 dark:border-pink-200 hover:border-pink-600 dark:hover:border-pink-100 text-white"
             />

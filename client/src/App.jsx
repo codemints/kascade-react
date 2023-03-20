@@ -10,11 +10,11 @@ function App() {
   const { darkmode, setDarkmode } = useDarkmode()
 
   const registerForm = {
-    endPoint: '/signup',
+    endPoint: '/register',
     typeOfForm: 'register'
   }
   const loginForm = {
-    route: '/signup',
+    endpoint: '/signin',
     typeOfForm: 'login'
   }
 
