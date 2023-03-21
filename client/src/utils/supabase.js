@@ -1,0 +1,8 @@
+import axios from "axios"
+
+// access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNjc5NDE1MjQ2LCJzdWIiOiI3Yzg1MmMxNi0wMmJlLTQ4YTItOTQ2Yi02NjNlNTI4OTZiOGMiLCJlbWFpbCI6ImhlbGxvQGNvZGVtaW50cy5pbyIsInBob25lIjoiIiwiYXBwX21ldGFkYXRhIjp7InByb3ZpZGVyIjoiZW1haWwiLCJwcm92aWRlcnMiOlsiZW1haWwiXX0sInVzZXJfbWV0YWRhdGEiOnt9LCJyb2xlIjoiYXV0aGVudGljYXRlZCIsImFhbCI6ImFhbDEiLCJhbXIiOlt7Im1ldGhvZCI6Im90cCIsInRpbWVzdGFtcCI6MTY3OTQxMTY0Nn1dLCJzZXNzaW9uX2lkIjoiNGI2MzA2ZWYtZjliYi00YjEzLWI4OTgtZTQzOTlhNmUzNDU1In0.uoU0OS0krQ7E3RarjSG_J85ZoHLqvM_Ei6AmBcXAKzM&expires_in=3600&refresh_token=1OHBLoX2_9h2egP0Ov7sNQ&token_type=bearer&type=signup
+
+//send request to supabase signup endpoint
+//if email already exists, send error message???
+//if username is taken, send error message???
+//if successful, show message saying "check your email to verify your account"

@@ -25,6 +25,24 @@ app.get('/', (req, res) => {
   res.send('This is your server for Kascade');
 })
 
+app.post('/signup', (req, res) => {
+  supabase.auth.signUp({
+    email: req.body.email,
+    password: req.body.password
+  })
+  .then(({ data, error }) => {
+    if (error) {
+      console.error(error);
+      res.status(500)
+      .send('Error signing up');
+    } else {
+      console.log(data);
+      res.status(200)
+      .send(data);
+    }
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 })

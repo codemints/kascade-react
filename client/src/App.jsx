@@ -5,16 +5,17 @@ import Landing from '@component/layouts/Landing'
 import Dashboard from '@component/layouts/Dashboard'
 import Title from '@component/landing/Title'
 import Form from '@component/form/Form'
+import Verify from '@component/form/Verify'
 
 function App() {
   const { darkmode, setDarkmode } = useDarkmode()
 
-  const registerForm = {
-    endPoint: '/register',
-    typeOfForm: 'register'
+  const signupForm = {
+    endPoint: 'signup',
+    typeOfForm: 'signup'
   }
   const loginForm = {
-    endpoint: '/signin',
+    endpoint: 'login',
     typeOfForm: 'login'
   }
 
@@ -31,10 +32,11 @@ function App() {
       <>
         <Route path="/" element={<Landing />}>
           <Route index element={<Title />} />
-          <Route path="register" element={<Form data={registerForm} />} />
+          <Route path="register" element={<Form data={signupForm} />} />
           <Route path="login" element={<Form data={loginForm} />} />
         </Route>
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/verify" element={<Verify />} />
       </>
     )
   )

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
@@ -17,7 +18,7 @@ const Form = ({data: {endPoint, typeOfForm}}) => {
   const password = watch('password')
 
   useEffect(() => {
-    typeOfForm === 'register' ? setType(true) : setType(false)
+    typeOfForm === 'signup' ? setType(true) : setType(false)
   }, [typeOfForm])
 
   useEffect(() => {
@@ -36,8 +37,12 @@ const Form = ({data: {endPoint, typeOfForm}}) => {
     }
   }, [password])
 
-  const onSubmit = (data) => {
-    console.log(NODE_ENV)
+  const onSubmit = async (data) => {
+    await axios
+    .post(`${API_URL}/${endPoint}`, data)
+    .then(res => {
+      console.log(res.data)
+    })
   }
 
   return (
@@ -76,14 +81,14 @@ const Form = ({data: {endPoint, typeOfForm}}) => {
             <div className="input-group">
               <label htmlFor="user-name">Username</label>
               <input
-                {...register('userName', {
+                {...register('username', {
                   required: "Username is required"
                 })}
                 type="text"
                 placeholder="awesomeuser2023"
                 id="user-name"className="border-blue-400 dark:border-white"
-                aria-invalid={ errors.userName ? "true" : "false"} />
-              { errors.userName && <p className="error-text">{ errors.userName.message }</p> }
+                aria-invalid={ errors.username ? "true" : "false"} />
+              { errors.username && <p className="error-text">{ errors.username.message }</p> }
             </div>
           }
           <div className="input-group">
@@ -138,7 +143,7 @@ const Form = ({data: {endPoint, typeOfForm}}) => {
             <input
               type="submit"
               value={ `${type ? 'Register' : 'Signin'}` }
-              disabled={ (type && !watch('userName')) || !watch('email') || !watch('password') }
+              disabled={ (type && !watch('username')) || !watch('email') || !watch('password') }
               title={ `Please enter a valid email and password to ${type ? 'register' : 'sign in'}.`}
               className="bg-pink-200 dark:bg-pink-400 border-pink-400 dark:border-pink-200 hover:border-pink-600 dark:hover:border-pink-100 text-white"
             />
