@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
 const Form = ({data: {endPoint, typeOfForm}}) => {
@@ -10,6 +10,9 @@ const Form = ({data: {endPoint, typeOfForm}}) => {
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [formError, setFormError] = useState(null)
   const [formData, setFormData] = useState({})
+  const [signupAuthenticated, setSignupAuthenticated] = useState(false)
+
+  const navigate = useNavigate()
 
   const NODE_ENV = process.env.NODE_ENV
   const API_URL = NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://kascade-server.onrender.com'
@@ -41,12 +44,23 @@ const Form = ({data: {endPoint, typeOfForm}}) => {
     await axios
     .post(`${API_URL}/${endPoint}`, data)
     .then(res => {
-      console.log(res.data)
+      setSignupAuthenticated(true)
     })
+  }
+
+  const closeModal = () => {
+    navigate('/')
   }
 
   return (
     <>
+      { type && signupAuthenticated ? (
+        <div className="signup-successful bg-dark-100 dark:bg-dark-700">
+          <h2 className="text-dark-600 dark:text-white">Your signup was successful!</h2>
+          <p className="text-dark-400 dark:text-dark-200">We've sent you a verification email. Please follow the link to verify your account.</p>
+          <button onClick={ closeModal } className="bg-pink-200 dark:bg-pink-400 border-pink-400 dark:border-pink-200 hover:border-pink-600 dark:hover:border-pink-100 text-white">Close this window</button>
+        </div>
+      ) : (
       <div className="form-inner text-dark-600 dark:text-white">
         <div className="form-intro">
           <h3>{ type ? 'Get started' : 'Welcome back'}</h3>
@@ -149,7 +163,7 @@ const Form = ({data: {endPoint, typeOfForm}}) => {
             />
         </form>
         <p className="form-switcher text-dark-600 dark:text-pink-400">{ type ? 'Already registered?' : 'Not registered yet?' } <Link to={ type ? '/login' : '/register'} className="text-pink-600 dark:text-white" >Sign { type ? 'in' : 'up' } now</Link></p>
-      </div>
+      </div>)}
     </>
   )
 }

@@ -1,21 +1,23 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Verify = () => {
   const [hashParams, setHashParams] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
-    const params = new URL(window.location).hash.substring(1)
-    const paramsArray = params.split('&')
-    setHashParams(paramsArray)
-  }, [])
+    const url = new URL(window.location)
+    if ( !url.href.includes('access_token') ) return
+    const paramsArray = url.hash.substring(1).split('&')
 
-  return (
-    <div>
-      { hashParams && hashParams.map((param, index) => (
-        <p style={{color: 'white', fontSize: '12px'}} key={index}>{param}</p>
-      ))}
-    </div>
-  )
+    const paramsLib = paramsArray.reduce((acc, param, index) => {
+      const [key, value] = param.split('=')
+      acc[key] = value
+      return acc
+    }, {})
+
+    navigate('/dashboard')
+  }, [])
 }
 
 export default Verify
